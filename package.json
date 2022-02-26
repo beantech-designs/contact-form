@@ -1,6 +1,6 @@
 {
   "name": "@beantech-designs/contact-form",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A react hook for handling beantech's contact us mailing",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
