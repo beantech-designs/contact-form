@@ -1,0 +1,67 @@
+{
+  "name": "@beantech-designs/contact-form",
+  "version": "1.0.0",
+  "description": "A react hook for handling beantech's contact us mailing",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "test": "jest",
+    "eslint:fix": "eslint src --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run eslint:fix",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bobslegend61/contact-form.git"
+  },
+  "keywords": [
+    "contact",
+    "contact-form",
+    "hook",
+    "contact-us"
+  ],
+  "author": "Beantech Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bobslegend61/contact-form/issues"
+  },
+  "homepage": "https://github.com/Bobslegend61/contact-form#readme",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^27.4.0",
+    "@types/react": "^17.0.39",
+    "@types/yup": "^0.29.13",
+    "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "@typescript-eslint/parser": "^5.11.0",
+    "eslint": "^8.9.0",
+    "eslint-plugin-react": "^7.28.0",
+    "husky": "^7.0.4",
+    "jest": "^27.5.1",
+    "lint-staged": "^12.3.3",
+    "msw": "^0.36.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-test-renderer": "^17.0.2",
+    "ts-jest": "^27.1.3",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "axios": "^0.25.0",
+    "formik": "^2.2.9",
+    "yup": "^0.32.11"
+  }
+}
