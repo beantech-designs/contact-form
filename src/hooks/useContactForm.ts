@@ -12,8 +12,8 @@ import axios from "axios";
 const useContactForm = (
     url: string,
     companyEmailAddress: string,
-    onSuccess: (data: any) => void,
-    onError: (error: any) => void,
+    onSuccess: (data: unknown) => void,
+    onError: (error: unknown) => void,
 ) => {
     const form = useFormik<{
     email: string;
