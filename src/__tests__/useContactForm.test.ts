@@ -10,34 +10,29 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 describe("useContactForm hook", () => {
-    test("success", async () => {
-        let successData = null;
-        const onSuccess = (data: any) => {
-            successData = data;
-        };
-        const onError = (data: any) => {
-            console.log(data);
-        };
-        const { result, waitForNextUpdate } = renderHook(() =>
-            useContactForm("/test", "bobslegend795@gmail.com", onSuccess, onError),
-        );
+  test("success", async () => {
+    const mockFunction = jest.fn();
+    const errFunction = jest.fn();
+    const { result } = renderHook(() =>
+      useContactForm(
+        "/api/test",
+        "bobslegend795@gmail.com",
+        mockFunction,
+        errFunction,
+      ),
+    );
 
-        await act(async () => {
-            result.current.form.setValues({
-                email: "beantech.designs@gmail.com",
-                fullName: "Beantech",
-                subject: "Testing",
-                message: "Testing message",
-            });
+    await act(async () => {
+      result.current.form.setValues({
+        email: "beantech.designs@gmail.com",
+        fullName: "Beantech",
+        subject: "Testing",
+        message: "Testing message",
+      });
 
-            await result.current.form.submitForm();
-        });
-
-        // await waitForNextUpdate();
-
-        // expect(result.current.form.values.email).toBe("bob");
-        // expect(result.current.form.submitCount).toBe(10);
-        expect(result.current.message).toBe("hello");
-    // expect(successData).toBe("Hello");
+      await result.current.form.submitForm();
     });
+
+    expect(result.current.form.submitCount).toBe(1);
+  });
 });

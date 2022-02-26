@@ -10,7 +10,12 @@
   "scripts": {
     "test": "jest",
     "eslint:fix": "eslint src --fix",
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run eslint:fix",
+    "preversion": "npm run eslint:fix",
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "husky": {
     "hooks": {
