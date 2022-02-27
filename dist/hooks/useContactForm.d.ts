@@ -6,7 +6,7 @@
  * @param {object} onError - Function to handle unsuccessful mail sent
  * @returns {object}
  */
-declare const useContactForm: (url: string, onSuccess: (message: string) => void, onError: (message: string) => void) => {
+declare const useContactForm: (url: string, companyEmailAddress: string, onSuccess: (data: unknown) => void, onError: (error: unknown) => void) => {
     form: {
         initialValues: {
             email: string;

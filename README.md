@@ -24,12 +24,18 @@ const ContactForm = () => {
     console.log(error);
   };
 
-  // useContactForm takes in three parameters
-  // - url: The emailing server url to send the form information.
-  // - onSuccess: A function to handle a successfull email sent.
-  // - onError: A function to handle any error if the form fails to submit
+  const options = {
+    url: "http://www.domain.com",
+    companyEmailAddress: "companyEmail@company.com",
+    onSuccess,
+    onError,
+    template: (email, fullName, message) => `<h1>Name: ${fullName}</h1>
+                                              <h2>Email: ${email}</h2>
+                                              <p>${message}</p>
+                                            `,
+  };
 
-  const { form } = useContactForm("url", onSuccess, onError);
+  const { form } = useContactForm(options);
   return (
     <form onSubmit={form.handleSubmit}>
       // fullName
@@ -88,3 +94,13 @@ const ContactForm = () => {
   );
 };
 ```
+
+#### useContactForm(options)
+
+`options`
+
+- `url`: _required_ - Mail server endpoint.
+- `companyEmailAddress`: _required_ - Email address of the host company.
+- `onSuccess`: _required_ - Function to be called if email was successfully sent.
+- `onError`: _required_ - Function to be called if an error occured when sending email.
+- `template`: _optional_ - HTML template to render as email template.
